@@ -1,5 +1,7 @@
 from random import randint
 from graphic_arts.start_game_banner import run_screensaver
+from typing import Optional
+
 
 
 def attack(char_name: str, char_class: str) -> str:
@@ -60,9 +62,9 @@ def start_training(char_name: str, char_class: str) -> str:
     return 'Тренировка окончена.'
 
 
-def choice_char_class() -> str:
-    approve_choice = None
-    char_class = None
+def choice_char_class() -> Optional[str]:
+    approve_choice: Optional[str] = None
+    char_class: Optional[str] = None
     while approve_choice != 'y':
         char_class = input('Введи название персонажа,')
         ('за которого хочешь играть:')
@@ -90,6 +92,6 @@ if __name__ == '__main__':
           'Сейчас твоя выносливость — 80, атака — 5 и защита — 10.')
     print('Ты можешь выбрать один из трёх путей силы:')
     print('Воитель, Маг, Лекарь')
-    char_class: str = choice_char_class()
+    char_class = choice_char_class()
     print(start_training(char_name, char_class))
 
